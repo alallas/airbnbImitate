@@ -54,3 +54,4 @@ const HotelServer = new Schema({
 })
 
 exports.HotelServer = mongoose.model("listingsAndReview", HotelServer);
+

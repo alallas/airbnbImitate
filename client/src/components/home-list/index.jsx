@@ -5,9 +5,9 @@ import { Rate, Skeleton } from 'antd';
 import { useNavigate } from "react-router-dom";
 
 import { HomeListWrapper } from './style'
-import HomeListImg from '../home-list-img';
+import ImgAndEmpty from '../cpn-img';
 import { fetchHomeListData } from '../../store/modules/home'
-import {changeItemData} from '../../store/modules/detail';
+import Star from '../cpn-star';
 
 
 const HomeList = memo((props) => {
@@ -28,7 +28,6 @@ const HomeList = memo((props) => {
 
   const navigate = useNavigate();
   const handleGoToDetail = (item) =>{
-    dispatch(changeItemData(item))
     navigate(`/detail/${item._id}`)
   }
   
@@ -40,7 +39,7 @@ const HomeList = memo((props) => {
             const { address:{country}, name, number_of_reviews, price, property_type, images:{picture_url} } = item
             return(
               <div className='item' key={index} onClick={()=>handleGoToDetail(item)}>
-                <HomeListImg picture_url={picture_url} />
+                <ImgAndEmpty picture_url={picture_url} padTop="66.66%"/>
                 <div className="info">
                   <div className='desc'>
                     <p className='grey'>{property_type}</p>
@@ -50,20 +49,13 @@ const HomeList = memo((props) => {
                     <h4 className='price'><strong>${price} USD</strong> /晚</h4>
                   </div>
                   <div className='rating'>
-                    {
-                      item?.review_scores?.review_scores_rating
-                      ? <div>
-                          <Rate 
-                            disabled 
-                            allowHalf 
-                            defaultValue={Number(item.review_scores.review_scores_rating)*0.05}
-                            style={{fontSize:10, color:"#00848A"}}
-                            className='star'
-                          />
-                          <p className='score'>{(Number(item.review_scores.review_scores_rating)*0.05).toFixed(2)}</p>
-                        </div> 
-                      : <div className='no-score'>暂无评分</div>
-                    }
+                    <Star 
+                      scores={item?.review_scores?.review_scores_rating} 
+                      align="flex-end"
+                      iconSize="10px"
+                      textSize="12"
+                      pMarBotm="2"
+                    />
                   </div>
                 </div>
               </div>

@@ -11,6 +11,7 @@ const cors = require('cors');
 
 const userRouter = require('./routes/userRoute');
 const homeRouter = require("./routes/homeRoute");
+const detailRouter = require("./routes/detailRoute");
 
 const app = express();
 
@@ -65,6 +66,7 @@ app.use(cors(corsOptions));
 //路由
 app.use("/", homeRouter);
 app.use('/user', userRouter);
+app.use('/detail', detailRouter);
 
 //404页面
 app.use(function (req, res, next) {

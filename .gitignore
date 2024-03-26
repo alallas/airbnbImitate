@@ -1,4 +1,4 @@
-# 公共的忽略规则，适用于整个仓库
+# 整个仓库
 /node_modules
 /.pnp
 .pnp.js
@@ -10,22 +10,22 @@
 *.env.production.local
 
 
-# Client-specific 忽略规则
+# Client-specific
 /client/node_modules
 /client/build
 /client/coverage
 /client/.pnp
 
-# Server-specific 忽略规则
+# Server-specific
 /server/node_modules
 /server/build
 /server/logs
 /server/*.pid
 
-# 一般性地忽略所有.env文件（可根据需求调整）
+# .env文件
 *.env
 
-# 其他可能需要忽略的公共文件/文件夹
+# 其他公共文件
 /.cache
 /.vscode
 /.idea

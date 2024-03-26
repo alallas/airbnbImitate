@@ -1,4 +1,3 @@
-//services-->modules-->home
 
 import request from "../request"
 

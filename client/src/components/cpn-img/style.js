@@ -1,15 +1,12 @@
 import { styled } from "styled-components";
 
-
-
-
-export const HomeListImgWrapper = styled.div`
+export const ImgAndEmptyWrapper = styled.div`
 
   position: relative;
-  padding: 66.66% 8px 0;
+  padding-top: ${(props) => props.padTop};
   border-radius: 10px;
   overflow: hidden;
-  
+
   img,
   .empty{
     position: absolute;
@@ -17,6 +14,7 @@ export const HomeListImgWrapper = styled.div`
     left: 0%;
     height: 100%;
     width: 100%;
+    object-fit: cover;
   }
   .empty{
     display: flex;

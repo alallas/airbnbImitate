@@ -2,10 +2,10 @@ import React, { memo, useState } from 'react';
 import { Empty } from 'antd';
 import PropTypes from 'prop-types'
 
-import { HomeListImgWrapper } from './style';
+import { ImgAndEmptyWrapper } from './style';
 
-const HomeListImg = memo((props) => {
-  const { picture_url } = props;
+const ImgAndEmpty = memo((props) => {
+  const { picture_url, padTop } = props;
   const [imgError, setImgError] = useState(false);
 
   const handleError = () => {
@@ -13,7 +13,7 @@ const HomeListImg = memo((props) => {
   }
 
   return (
-    <HomeListImgWrapper>
+    <ImgAndEmptyWrapper padTop={padTop}>
       {
         !imgError
         ? <img src={picture_url} alt="hotel's picture" onError={handleError}/>
@@ -23,14 +23,15 @@ const HomeListImg = memo((props) => {
             description={<p className='empty-text'>图片加载失败</p>}
           />
       }
-    </HomeListImgWrapper>
+    </ImgAndEmptyWrapper>
   )
 })
 
-HomeListImg.propTypes = {
-  picture_url: PropTypes.string
+ImgAndEmpty.propTypes = {
+  picture_url: PropTypes.string,
+  padTop: PropTypes.string
 }
 
-export default HomeListImg
+export default ImgAndEmpty
 
 

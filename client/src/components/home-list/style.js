@@ -57,21 +57,8 @@ export const HomeListWrapper=styled.div`
 
       .rating{
         flex: 25%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-
-        .star .ant-rate-star{
-          margin-right: 1px;
-        }
-        .score{
-          font-size: 12px;
-          font-weight: bold;
-        }
-        .no-score{
-          font-size: 12px;
-          color: #999;
-        }
+        align-items: flex-start;
+        justify-content: flex-start;
       }
     }
   }

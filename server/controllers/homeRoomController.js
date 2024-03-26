@@ -1,6 +1,5 @@
-//server-->controllers-->homeRoomController
 
-const HotelReviewModel = require("../models/hotel/hotelReview");
+const HotelDetailModel = require("../models/hotel/hotelDetail");
 
 exports.homeRoom_check_get = async (req, res, next) => {
   try {
@@ -9,7 +8,6 @@ exports.homeRoom_check_get = async (req, res, next) => {
       name:1,
       property_type:1,
       number_of_reviews:1,
-      amenities:1,
       price:1,
       images:{
         picture_url:1,
@@ -21,7 +19,7 @@ exports.homeRoom_check_get = async (req, res, next) => {
         review_scores_rating:1,
       }
     };
-    const result = await HotelReviewModel.find({},filter).limit(100).exec();
+    const result = await HotelDetailModel.find({},filter).limit(100).exec();
     res.json(result);
     console.log(typeof result);
 
@@ -29,5 +27,10 @@ exports.homeRoom_check_get = async (req, res, next) => {
     res.status(500).json({ error: err, msg: "无法find" })
   }
 }
+
+
+
+
+
 
 
